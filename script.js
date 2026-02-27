@@ -1,14 +1,4 @@
-// ===== CURSOR GLOW =====
-const glow = document.createElement("div");
-glow.classList.add("cursor-glow");
-document.body.appendChild(glow);
-
-document.addEventListener("mousemove", (e) => {
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
-});
-
-// ===== COUNTDOWN TIMER =====
+// ===== COUNTDOWN =====
 const countdown = document.getElementById("countdown");
 const eventDate = new Date("August 1, 2026 00:00:00").getTime();
 
@@ -28,7 +18,7 @@ setInterval(() => {
   countdown.innerHTML = `${days} Days ${hours} Hours ${minutes} Minutes Remaining`;
 }, 1000);
 
-// ===== SMOOTH SCROLL FADE-IN =====
+// ===== SCROLL FADE-IN =====
 const sections = document.querySelectorAll(".section");
 
 const observer = new IntersectionObserver((entries) => {
@@ -41,13 +31,10 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 sections.forEach(section => {
-  section.style.opacity = 0;
-  section.style.transform = "translateY(60px)";
-  section.style.transition = "all 1s ease";
   observer.observe(section);
 });
 
-// ===== NAVBAR GLOW ON SCROLL =====
+// ===== NAV GLOW ON SCROLL =====
 window.addEventListener("scroll", () => {
   const nav = document.querySelector("nav");
   if (window.scrollY > 50) {
