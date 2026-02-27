@@ -1,22 +1,31 @@
-// ===== COUNTDOWN =====
+// ===== LIVE COUNTDOWN =====
 const countdown = document.getElementById("countdown");
 const eventDate = new Date("August 1, 2026 00:00:00").getTime();
 
-setInterval(() => {
+function updateCountdown() {
   const now = new Date().getTime();
   const distance = eventDate - now;
 
-  if (distance < 0) {
-    countdown.innerHTML = "Conference Live";
+  if (distance <= 0) {
+    countdown.innerHTML = "🚀 Conference Live";
     return;
   }
 
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
   const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
 
-  countdown.innerHTML = `${days} Days ${hours} Hours ${minutes} Minutes Remaining`;
-}, 1000);
+  countdown.innerHTML = `
+    <span>${days}d</span> :
+    <span>${hours}h</span> :
+    <span>${minutes}m</span> :
+    <span>${seconds}s</span>
+  `;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
 // ===== SCROLL FADE-IN =====
 const sections = document.querySelectorAll(".section");
