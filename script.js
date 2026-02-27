@@ -6,6 +6,8 @@ function updateCountdown() {
   const now = new Date().getTime();
   const distance = eventDate - now;
 
+  if (!countdown) return;
+
   if (distance <= 0) {
     countdown.innerHTML = "🚀 Conference Live";
     return;
@@ -39,16 +41,13 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.2 });
 
-sections.forEach(section => {
-  observer.observe(section);
-});
+sections.forEach(section => observer.observe(section));
 
 // ===== NAV GLOW ON SCROLL =====
 window.addEventListener("scroll", () => {
   const nav = document.querySelector("nav");
-  if (window.scrollY > 50) {
-    nav.style.boxShadow = "0 0 30px #6d28d9";
-  } else {
-    nav.style.boxShadow = "none";
-  }
+  if (!nav) return;
+
+  nav.style.boxShadow =
+    window.scrollY > 50 ? "0 0 30px #6d28d9" : "none";
 });
