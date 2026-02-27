@@ -77,19 +77,20 @@ nav a:hover {
   100% { transform: translateY(0px); }
 }
 
-/* ===== COUNTDOWN ===== */
-#countdown {
-  margin-top: 15px;
-  font-size: 20px;
-  color: #c084fc;
-}
 
 /* ===== BUTTON ===== */
 .btn {
   padding: 14px 40px;
   background: #6d28d9;
   border-radius: 15px;
-  text-decoration: none;
+  text-decorat#countdown {
+  margin-top: 20px;
+  font-size: 28px;
+  letter-spacing: 3px;
+  color: #e6c77a;
+  text-shadow: 0 0 15px #c084fc;
+  font-weight: bold;
+}ion: none;
   color: white;
   margin-top: 25px;
   transition: 0.3s;
